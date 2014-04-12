@@ -1,0 +1,6 @@
+# Binaries and vendor libraries.
+bin/
+vendor/
+
+# Lock files.
+*.lock
