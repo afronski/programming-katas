@@ -1,0 +1,8 @@
+# Programming environment.
+.env/
+
+# Python binaries.
+*.pyc
+
+# Coverage binaries.
+.coverage
