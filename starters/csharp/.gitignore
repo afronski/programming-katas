@@ -1,0 +1,6 @@
+# Binaries.
+ProgrammingKata/bin/
+ProgrammingKata/obj/
+
+# User preferences.
+ProgrammingKata/*.userprefs
