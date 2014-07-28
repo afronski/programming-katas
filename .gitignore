@@ -1,0 +1,3 @@
+# Ignores for Scala projects.
+starters/scala/target/
+starters/scala/project/target/
