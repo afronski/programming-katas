@@ -1,0 +1,8 @@
+env = Environment()
+
+flags = [
+	'-g', '-Wall', '-Wextra'
+]
+
+env.Program("kata", "kata.c", CFLAGS = flags)
+env.Program("kata_tests", "kata_tests.c", CFLAGS = flags)

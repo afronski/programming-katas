@@ -1,3 +1,9 @@
 # Ignores for Scala projects.
 starters/scala/target/
 starters/scala/project/target/
+
+# Ignores for C projects.
+starters/c/kata
+starters/c/kata_tests
+starters/c/*.dblite
+starters/c/*.o
