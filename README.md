@@ -9,6 +9,5 @@ Programming Katas with description and starters for various languages.
 
 ## TODO
 
-- Elixir
 - Prolog
 - C++

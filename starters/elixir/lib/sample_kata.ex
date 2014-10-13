@@ -1,0 +1,2 @@
+defmodule SampleKata do
+end
