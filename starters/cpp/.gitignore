@@ -1,0 +1,6 @@
+# Scons:
+*.dblite
+
+# Binaries:
+run_tests
+*.o

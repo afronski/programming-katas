@@ -6,7 +6,3 @@ Programming Katas with description and starters for various languages.
 
 - Fizz-Buzz
 - Bowling Kata
-
-## TODO
-
-- C++

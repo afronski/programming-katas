@@ -1,0 +1,12 @@
+env = Environment()
+env.Append(CPPPATH = [ '' ])
+
+flags = [
+	'-g', '-Wall', '-Wextra'
+]
+
+libs = [
+	'boost_unit_test_framework'
+]
+
+env.Program("run_tests", "test_case.cpp", CFLAGS = flags, LIBS = libs)
