@@ -19,7 +19,7 @@ public class MainTest {
 
 	@Test
 	public void thisTestIsDeliberatelyBroken() {
-		// Assert.fail("Fix it!");
+		Assert.fail("Fix it!");
 	}
 
 }
