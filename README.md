@@ -12,4 +12,3 @@ Programming Katas with description and starters for various languages.
 - Elixir
 - Prolog
 - C++
-- Go
