@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.7
 version = 1.0
@@ -24,5 +25,18 @@ uploadArchives {
 		flatDir {
 			dirs 'repos'
 		}
+	}
+}
+
+jacoco {
+	toolVersion = "0.7.1.201405082137"
+	reportsDir = file("$buildDir/codeCoverage")
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination "${buildDir}/codeCoverageHtmlReport"
 	}
 }
