@@ -1,0 +1,8 @@
+# Scons:
+*.dblite
+
+# Binaries:
+list
+list_tests
+*.o
+*.a

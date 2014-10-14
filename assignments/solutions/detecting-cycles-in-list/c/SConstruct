@@ -1,0 +1,8 @@
+env = Environment()
+
+flags = [
+	'-g', '-Wall', '-Wextra'
+]
+
+lists = env.Library("list", "list.c", CFLAGS = flags)
+env.Program("list_tests", [ "list_tests.c", lists ], CFLAGS = flags)

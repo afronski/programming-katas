@@ -1,0 +1,8 @@
+# Scons:
+*.dblite
+
+# Binaries:
+kata
+kata_tests
+*.o
+*.a
