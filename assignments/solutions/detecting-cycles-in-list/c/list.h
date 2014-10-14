@@ -10,6 +10,6 @@ typedef struct Node {
 Node* Node_create(int value);
 
 void List_print_n_elements(Node* head, int n);
-int List_detect_cycle(Node* head);
+int List_has_cycle(Node* head);
 
 #endif
