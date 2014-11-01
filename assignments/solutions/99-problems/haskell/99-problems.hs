@@ -17,3 +17,11 @@ length' xs = length xs
 -- P05: Reverse a list.
 
 reverse' xs = reverse xs
+
+-- P06: Find out whether a list is a palindrome.
+
+isPalindrome xs = reverse xs == xs
+
+-- P07: Flatten a nested list structure.
+
+flatten xs = concat xs

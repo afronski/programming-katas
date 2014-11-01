@@ -20,3 +20,11 @@
 ; P05: Reverse a list.
 
 (defn another-reverse [ xs ] (reverse xs))
+
+; P06: Find out whether a list is a palindrome.
+
+(defn is-palindrome [ xs ] (= (reverse xs) xs))
+
+; P07: Flatten a nested list structure.
+
+(defn another-flatten [ xs ] (flatten xs))
