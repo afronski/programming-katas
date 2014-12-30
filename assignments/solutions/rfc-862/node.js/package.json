@@ -1,0 +1,11 @@
+{
+  "name": "echo-server",
+  "version": "0.1.0",
+  "description": "Echo Server - RFC 862 implementation.",
+  "scripts": {
+    "tcp": "node --harmony tcp-server.js",
+    "udp": "node --harmony udp-server.js"
+  },
+  "author": "Wojtek Gawronski (afronski@gmail.com)",
+  "license": "MIT"
+}
