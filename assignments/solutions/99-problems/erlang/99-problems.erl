@@ -216,3 +216,30 @@ group([], _) -> [[]];
 group([ N | Ns ], Xs) -> 
     [ [ G | Gs ] || { G, Rs } <- combinationWithoutRepetition(N, Xs),
                     Gs <- group(Ns, Rs) ].
+
+% P28: Sorting a list of lists according to length of sublists.
+%
+%      a) We suppose that a list (InList) contains elements that are lists themselves. 
+%         The objective is to sort the elements of InList according to their length. 
+%         E.g. short lists first, longer lists later, or vice versa.
+
+lsort([])                                                    -> [];
+lsort([ H | T ])                                             -> lsort(H, T, [], []).
+
+lsort(P, [], Left, Right)                                    -> lsort(Left) ++ [ P ] ++ lsort(Right);
+lsort(P, [ H | T ], Left, Right) when length(H) >= length(P) -> lsort(P, T, Left, [ H | Right ]);
+lsort(P, [ H | T ], Left, Right)                             -> lsort(P, T, [ H | Left ], Right).
+
+%      b) Again, we suppose that a list (InList) contains elements that are lists 
+%         themselves. But this time the objective is to sort the elements of InList 
+%         according to their length frequency; i.e. in the default, where sorting 
+%         is done ascendingly, lists with rare lengths are placed first, others 
+%         with a more frequent length come later.
+
+groupBy(F, L) -> lists:foldr(fun({ K, V }, D) -> dict:append(K, V, D) end, dict:new(), [ { F(X), X } || X <- L ]).
+
+lfsort(L) ->
+    Sorted = lsort(L),
+    GrouppedEqualLengthDict = groupBy(fun (A) -> length(A) end, Sorted),
+    GrouppedEqualLength = dict:fold(fun (_K, V, Acc) -> [ V | Acc ] end, [], GrouppedEqualLengthDict),
+    lists:append(lsort(GrouppedEqualLength)).
