@@ -1,4 +1,4 @@
--module(erlang99).
+-module('99-problems').
 -compile(export_all).
 
 % P01: Find the last element of a list.
@@ -190,3 +190,29 @@ permutation(L) ->
 combinations(0, _) -> [];
 combinations(1, L) -> [ [ X ] || X <- L ];
 combinations(N, L) -> [ [ H | Res ] || H <- L, Res <- combinations(N - 1, L), false == lists:member(H, Res) ].
+
+% P27: Group the elements of a set into disjoint subsets.
+%
+%      a) In how many ways can a group of 9 people work in 3 disjoint subgroups 
+%         of 2, 3 and 4 persons? Write a predicate that generates all the 
+%         possibilities via backtracking.
+
+combinationWithoutRepetition(0, Xs) -> [ { [], Xs } ];
+combinationWithoutRepetition(_, []) -> [];
+combinationWithoutRepetition(N, [ X | Xs ]) -> 
+    Ts = [ { [ X | Ys ], Zs } || { Ys, Zs } <- combinationWithoutRepetition(N - 1, Xs) ],
+    Ds = [ { Ys, [ X | Zs ] } || { Ys, Zs } <- combinationWithoutRepetition(N, Xs) ],
+    Ts ++ Ds.
+
+group3(L) ->
+    [ [ Twos, Threes, Fours ] || { Twos, L2 } <- combinationWithoutRepetition(2, L), 
+                                 { Threes, L3 } <- combinationWithoutRepetition(3, L2), 
+                                 { Fours, _ } <- combinationWithoutRepetition(4, L3) ].                           
+
+%      b) Generalize the above predicate in a way that we can specify a 
+%         list of group sizes and the predicate will return a list of groups.
+
+group([], _) -> [[]];
+group([ N | Ns ], Xs) -> 
+    [ [ G | Gs ] || { G, Rs } <- combinationWithoutRepetition(N, Xs),
+                    Gs <- group(Ns, Rs) ].
